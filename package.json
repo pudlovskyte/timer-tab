@@ -1,0 +1,25 @@
+{
+  "name": "monika-timer-tab",
+  "version": "0.0.0",
+  "description": "My copy of Timer-Tab",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-less": "^1.3.6",
+    "gulp-sourcemaps": "^1.2.4",
+    "simple-server": "^1.0.1"
+  },
+  "scripts": {
+    "http-server": "simple-server . 8000",
+    "watch-less": "gulp",
+    "start": "npm run watch-less & npm run http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "wf:repos/monika-timer-tab.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
