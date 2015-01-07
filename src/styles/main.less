@@ -1,3 +1,61 @@
 @media screen {
+
+	body {
+		margin: 0;
+		background-color: @MainColor;
+	}
+
+	body, input, button {
+		font-family: Lato, sans-serif;
+		color: @TextColor;
+	}
+
+	.timer-choice {
+		margin-top: 4em;
+		padding: 2em 4em;
+		background-color: @SplashColor;
+	}
+
+	.timer {
+		display: inline-block;
+		margin: 0 3.5em;
+	}
+
+	.time-input {
+		width: 1.5em;
+		font-size: 2rem;
+		text-align: center;
+		background: @ComplementaryColor;
+		border-radius: 5px;
+		border: none;
+
+		&::-webkit-inner-spin-button {
+			display: none;
+		}
+	}
+
+	.start-button {
+		display: block;
+		padding: 0.6em;
+		margin-top: 1em;
+
+		background: @ComplementaryColor;
+		border-radius: 5px;
+		border: none;
+
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+
+	.minutes::before {
+		content: ":";
+		margin-right: 0.2em;
+	}
+
+	.seconds::before{
+		content: ":";
+		margin-right: 0.2em;
+	}
 }
 
