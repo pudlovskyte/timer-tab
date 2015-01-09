@@ -9,14 +9,28 @@
 
 	.timer {
 		display: inline-block;
-		margin: 0 1.6em;
+
+		width: 25%;
+		max-width: 300px;
+		min-width: 150px;
+
+		margin: 0 0.6em;
 		font-size: 2.2em;
+	}
+
+	.timer-control-block {
+		margin: 0;
+		padding: 0;
+		border: none;
+
+		white-space: nowrap;
 	}
 
 	.time-input {
 		width: 1.5em;
 		font-size: 1em; /*This overwrites default font value comming from user style sheets*/
 		text-align: center;
+
 		background: @ComplementaryColor;
 		border-radius: 5px;
 		border: none;
@@ -31,8 +45,8 @@
 	}
 
 	.start-button {
-		padding: 0.6em 0.8em;
 		margin-top: 1em;
+		padding: 0.6em 0.8em;
 
 		background: @ComplementaryColor;
 		border-radius: 5px;
