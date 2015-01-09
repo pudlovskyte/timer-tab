@@ -6,45 +6,44 @@
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 <link href="../build/timertab.css" rel="stylesheet">
 
-<div class=timer-choice>
-	<form class="timer countdown">
-		<fieldset class=timer-control-block>
-			<label class=hours>
-				<input class=time-input type=number min="0" placeholder="h"></label>
-			<label class=minutes>
-				<input class=time-input type=number min="0" placeholder="m"></label>
-			<label class=seconds>
-				<input class=time-input type=number min="0" placeholder="s"></label>
-		</fieldset>
+<div class=content>
+	<div class=timer-choice><form class="timer countdown">
+			<fieldset class=timer-control-block>
+				<label class=hours>
+					<input class=time-input type=number min="0" placeholder="h"></label>
+				<label class=minutes>
+					<input class=time-input type=number min="0" placeholder="m"></label>
+				<label class=seconds>
+					<input class=time-input type=number min="0" placeholder="s"></label>
+			</fieldset>
 
-		<fieldset class=timer-control-block>
-			<button class=start-button type=submit>
-				<span class=start-button-text>Start countdown</span></button>
-		</fieldset>
-	</form>
+			<fieldset class=timer-control-block>
+				<button class=start-button type=submit>
+					<span class=start-button-text>Start countdown</span></button>
+			</fieldset>
+		</form><form class="timer alarmclock">
+			<fieldset class=timer-control-block>
+				<label class=hours>
+					<input class=time-input type=number min="0" placeholder="h"></label>
+				<label class=minutes>
+					<input class=time-input type=number min="0" placeholder="m"></label>
+				<label class=seconds>
+					<input class=time-input type=number min="0" placeholder="s"></label>
+			</fieldset>
 
+			<fieldset class=timer-control-block>
+				<button class=start-button type=submit>
+					<span class=start-button-text>Start alarm clock</span></button>
+			</fieldset>
+		</form><form class="timer stopwatch">
+			<fieldset class=timer-control-block>
+				<button class=start-button type=submit>
+					<span class=start-button-text>Start stopwatch</span></button>
+			</fieldset>
+		</form>
+	</div>
 
-	<form class="timer alarmclock">
-		<fieldset class=timer-control-block>
-			<label class=hours>
-				<input class=time-input type=number min="0" placeholder="h"></label>
-			<label class=minutes>
-				<input class=time-input type=number min="0" placeholder="m"></label>
-			<label class=seconds>
-				<input class=time-input type=number min="0" placeholder="s"></label>
-		</fieldset>
-
-		<fieldset class=timer-control-block>
-			<button class=start-button type=submit>
-				<span class=start-button-text>Start alarm clock</span></button>
-		</fieldset>
-	</form>
-
-
-	<form class="timer stopwatch">
-		<fieldset class=timer-control-block>
-			<button class=start-button type=submit>
-				<span class=start-button-text>Start stopwatch</span></button>
-		</fieldset>
-	</form>
+	<div class=timer-result>
+		10:meow
+	</div>
 </div>
