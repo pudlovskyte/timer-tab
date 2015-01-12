@@ -18,7 +18,7 @@
 			</fieldset>
 
 			<fieldset class=timer-control-block>
-				<button class=start-button type=submit>
+				<button class="start timer-button" type=submit>
 					<span class=start-button-text>Start countdown</span></button>
 			</fieldset>
 		</form><form class="timer alarmclock">
@@ -32,18 +32,25 @@
 			</fieldset>
 
 			<fieldset class=timer-control-block>
-				<button class=start-button type=submit>
+				<button class="start timer-button" type=submit>
 					<span class=start-button-text>Start alarm clock</span></button>
 			</fieldset>
 		</form><form class="timer stopwatch">
 			<fieldset class=timer-control-block>
-				<button class=start-button type=submit>
+				<button class="start timer-button" type=submit>
 					<span class=start-button-text>Start stopwatch</span></button>
 			</fieldset>
 		</form>
 	</div>
 
-	<div class=timer-result>
-		10:meow
+	<div class=timer-result-wrapper>
+		<form class=timer-result>
+			<fieldset class="result-control-block counter">12:10:22</fieldset>
+
+			<fieldset class=result-control-block>
+				<button class="pause-resume timer-button">
+					<span class=pause-resume-button-text>Resume</span></button>
+			</fieldset>
+		</form>
 	</div>
 </div>
