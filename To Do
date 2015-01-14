@@ -23,24 +23,20 @@ To Do:
 }
 
 
+[mode="countdown"] .alarmclock .time-input {
+	behave like .timer-inactive .time-input;
+}
+if (mode === countdown) {
+	.alarmclock.addClass('.timer-inactive');
+}
 
-
-
-	mode="countdown"
-	[mode="countdown"] .alarmclock .time-input {
-		behave like .timer-inactive .time-input;
+.countdown .time-input {
+	&::-webkit-input-placeholder {
+		opacity: 0;
 	}
-	if (mode === countdown) {
-		.alarmclock.addClass('.timer-inactive');
+}
+.mode-countdown .countdown .time-input {
+	&::-webkit-input-placeholder {
+		opacity: 1;
 	}
-
-	.countdown .time-input {
-		&::-webkit-input-placeholder {
-			opacity: 0;
-		}
-	}
-	.mode-countdown .countdown .time-input {
-		&::-webkit-input-placeholder {
-			opacity: 1;
-		}
-	}
+}
