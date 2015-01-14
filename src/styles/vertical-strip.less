@@ -24,6 +24,7 @@
 		margin-left : 66%;
 	}
 
+
 	.timer-result {
 		margin-top: 2em;
 	}
@@ -37,4 +38,29 @@
 		background-image: url("../resources/play.svg");
 		background-repeat: no-repeat;
 	}
+
+	.reminder-text{
+		opacity: 0.8;
+	}
+
+	.alarm-reminder {
+		display: none;
+	}
+
+	[data-mode="countdown"], [data-mode="stopwatch"] {
+		.alarm-reminder {
+			display: none;
+		}
+	}
+
+	[data-mode="alarmclock"] {
+		.alarm-reminder {
+			display: inline;
+		}
+
+		.pause-resume.timer-button {
+			display: none;
+		}
+	}
+
 }
