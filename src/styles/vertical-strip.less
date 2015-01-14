@@ -3,13 +3,25 @@
 		width: 33%;
 		height: 100%;
 
-		margin-left: 0%;
-
 		margin-top: -1000px;
 		padding-top: 1000px;
 		background-color: @SplashColor;
 
 		text-align: center;
+
+		transition: all, 0.4s;
+	}
+
+	[data-mode="countdown"] .timer-result-wrapper {
+		margin-left : 0%;
+	}
+
+	[data-mode="alarmclock"] .timer-result-wrapper {
+		margin-left : 33%;
+	}
+
+	[data-mode="stopwatch"] .timer-result-wrapper {
+		margin-left : 66%;
 	}
 
 	.timer-result {
