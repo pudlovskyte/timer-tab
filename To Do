@@ -1,7 +1,8 @@
 To Do:
 
 *Spalvos ir permatomumai
-
+*labai mazi ekranai
+*portrait/landscape
 
 .timer-inactive .time-input {
 		&::-webkit-input-placeholder {

@@ -1,0 +1,58 @@
+@media screen and (max-width: 1000px) {
+
+	.content {
+		padding-top: 0;
+	}
+
+	.timer-choice {
+		width: 33%;
+		height: 100%;
+		padding: 0;
+		box-shadow: 0 300px 0 0 @SplashColor, 0 -300px 0 0 @SplashColor;
+	}
+
+	.timer {
+		width: 100%;
+		height: 33%;
+
+		display: flex;
+ 	 	flex-direction: column;
+  		justify-content: center;
+	}
+
+
+	.timer-result-wrapper {
+		width: 100%;
+		min-height: 33%;
+		padding-left: 33%;
+		box-sizing: border-box;
+
+		margin-top: -100vh;
+
+		box-shadow: 35vw 0 0 0 @SplashColor, -35vw 0 0 0 @SplashColor;
+
+		display: flex;
+ 	 	flex-direction: column;
+  		justify-content: center;
+	}
+
+	[data-mode="countdown"] .timer-result-wrapper {
+		margin-top : -100vh;
+		margin-left : 0%;
+	}
+
+	[data-mode="alarmclock"] .timer-result-wrapper {
+		margin-top : -66vh;
+		margin-left : 0%;
+	}
+
+	[data-mode="stopwatch"] .timer-result-wrapper {
+		margin-top : -33vh;
+		margin-left : 0%;
+	}
+
+	.timer-result {
+		margin-top: 0;
+	}
+
+}
