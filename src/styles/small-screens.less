@@ -2,6 +2,7 @@
 
 	.content {
 		padding-top: 0;
+		white-space: nowrap;
 	}
 
 	.timer-choice {
@@ -21,32 +22,29 @@
 	}
 
 	.timer-result-wrapper {
-		width: 100%;
+		width: 60vw;
 		min-height: 33%;
-		padding-left: 15em;
-		box-sizing: border-box;
+		vertical-align: top;
 
-		margin-top: -100vh;
+		box-shadow: 50vw 0 0 0 @SplashColor, -50vw 0 0 0 @SplashColor;
 
-		box-shadow: 35vw 0 0 0 @SplashColor, -35vw 0 0 0 @SplashColor;
-
-		display: flex;
+		display: inline-flex;
  	 	flex-direction: column;
   		justify-content: center;
 	}
 
 	[data-mode="countdown"] .timer-result-wrapper {
-		margin-top : -100vh;
+		margin-top: 0vh;
 		margin-left : 0%;
 	}
 
 	[data-mode="alarmclock"] .timer-result-wrapper {
-		margin-top : -66vh;
+		margin-top: 33.3vh;
 		margin-left : 0%;
 	}
 
 	[data-mode="stopwatch"] .timer-result-wrapper {
-		margin-top : -33vh;
+		margin-top: 66.9vh;
 		margin-left : 0%;
 	}
 
