@@ -1,4 +1,4 @@
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px), screen and (orientation: portrait) {
 
 	.content {
 		padding-top: 0;
@@ -51,5 +51,23 @@
 	.timer-result {
 		margin-top: 0;
 	}
+}
 
+
+@media screen and (max-width: 650px) {
+
+	.content {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 550px), screen and (max-height: 550px) {
+
+	.content {
+		font-size: 0.5em;
+	}
+
+	.timer-button {
+		font-size: 1em;
+	}
 }
