@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 
-var countdown = require('./countdown');
+var countdown = require('./scripts/countdown');
 
 $('[data-target-mode]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
