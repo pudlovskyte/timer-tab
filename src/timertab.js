@@ -1,3 +1,6 @@
+
+var $ = require('jquery');
+
 $('[data-target-mode]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
 	$('.content').attr(
