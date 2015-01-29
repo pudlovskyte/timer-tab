@@ -26,6 +26,4 @@ var start = function(seconds){
 	}
 };
 
-module.exports = {
-	start: start
-};
+module.exports = start;

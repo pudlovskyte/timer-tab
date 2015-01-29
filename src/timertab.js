@@ -21,7 +21,7 @@ var getTime = function(form){
 
 var f = function(event){
 	event.preventDefault();
-	countdown.start(getTime($(this)));
+	countdown(getTime($(this)));
 };
 
 $('form.countdown').on('submit', f);
