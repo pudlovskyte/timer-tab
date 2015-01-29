@@ -19,10 +19,7 @@ var getTime = function($form){
 	return 3600*hours + 60*minutes + seconds;
 };
 
-
-var f = function(event){
+$('form.countdown').on('submit', function(event){
 	event.preventDefault();
 	countdown(getTime($(event.target)));
-};
-
-$('form.countdown').on('submit', f);
+});
