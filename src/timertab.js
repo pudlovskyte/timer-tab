@@ -12,12 +12,13 @@ $('[data-target-mode]').on('click', function(){
 	);
 });
 
-var getTime = function(form){
-	var hours = Number($(form).find('.hours input').val());
-	var minutes = Number($(form).find('.minutes input').val());
-	var seconds = Number($(form).find('.seconds input').val());
+var getTime = function($form){
+	var hours = Number($form.find('.hours input').val());
+	var minutes = Number($form.find('.minutes input').val());
+	var seconds = Number($form.find('.seconds input').val());
 	return 3600*hours + 60*minutes + seconds;
 };
+
 
 var f = function(event){
 	event.preventDefault();
