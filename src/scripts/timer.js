@@ -9,8 +9,15 @@ var timer;
 var currentMode;
 var currentSeconds;
 
+var getCounterSize = function(seconds){
+	if (seconds < 60) return 'big';
+	if (seconds < 3600) return 'medium';
+	return 'small';
+};
+
 var display = function(seconds){
 	$('.counter').text(formatTime(seconds));
+	$('.counter').attr('data-counter-size', getCounterSize(seconds));
 };
 
 var stop = function(){
