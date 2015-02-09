@@ -16,11 +16,13 @@ $('[data-target-mode]').on('click', function(){
 $('[data-target-pause]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
 	$('.content').attr('data-paused', '');
+	timer.pause();
 });
 
 $('[data-target-resume]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
 	$('.content').removeAttr('data-paused');
+	timer.resume();
 });
 
 

@@ -6,6 +6,9 @@ var formatTime = require('./format-time');
 
 var timer;
 
+var currentMode;
+var currentSeconds;
+
 var display = function(seconds){
 	$('.counter').text(formatTime(seconds));
 };
@@ -16,6 +19,8 @@ var stop = function(){
 
 var countdown = function(seconds){
 	stop();
+	currentMode = 'countdown';
+	currentSeconds = seconds;
 	display(seconds);
 	if (seconds > 0) {
 		timer = setTimeout(function(){
@@ -29,10 +34,26 @@ var countdown = function(seconds){
 var stopwatch = function(seconds){
 	seconds = seconds || 0;
 	stop();
+	currentMode = 'stopwatch';
+	currentSeconds = seconds;
 	display(seconds);
 	timer = setTimeout(function(){
 		stopwatch(seconds + 1);
 	}, 1000);
 };
 
-module.exports = {countdown: countdown, stopwatch: stopwatch};
+var pause = function(){
+	stop();
+};
+
+var resume = function(){
+	var f = currentMode === 'countdown' ? countdown : stopwatch;
+	f(currentSeconds);
+};
+
+module.exports = {
+	countdown: countdown,
+	stopwatch: stopwatch,
+	pause: pause,
+	resume: resume
+};
