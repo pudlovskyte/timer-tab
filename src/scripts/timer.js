@@ -47,6 +47,7 @@ var pause = function(){
 };
 
 var resume = function(){
+	if (!currentMode) return;
 	var f = currentMode === 'countdown' ? countdown : stopwatch;
 	f(currentSeconds);
 };
