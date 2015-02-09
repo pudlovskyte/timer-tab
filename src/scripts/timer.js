@@ -14,16 +14,25 @@ var stop = function(){
 	clearTimeout(timer);
 };
 
-var start = function(seconds){
+var countdown = function(seconds){
 	stop();
 	display(seconds);
 	if (seconds > 0) {
 		timer = setTimeout(function(){
-			start(seconds - 1);
+			countdown(seconds - 1);
 		}, 1000);
 	} else {
 
 	}
 };
 
-module.exports = start;
+var stopwatch = function(seconds){
+	seconds = seconds || 0;
+	stop();
+	display(seconds);
+	timer = setTimeout(function(){
+		stopwatch(seconds + 1);
+	}, 1000);
+};
+
+module.exports = {countdown: countdown, stopwatch: stopwatch};
