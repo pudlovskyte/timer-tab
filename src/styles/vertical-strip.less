@@ -44,16 +44,32 @@
 		background-repeat: no-repeat;
 	}
 
-	.resume.timer-button {
-		display: none;
-	}
-
 	.reminder-text{
 		opacity: 0.8;
 	}
 
 	.alarm-reminder {
 		display: none;
+	}
+
+	[data-timer-mode="paused"] {
+		.pause.timer-button {
+			display: none;
+		}
+
+		.resume.timer-button {
+			display: inline;
+		}
+	}
+
+	[data-timer-mode="resumed"] {
+		.pause.timer-button {
+			display: inline;
+		}
+
+		.resume.timer-button {
+			display: none;
+		}
 	}
 
 	[data-mode="countdown"],
