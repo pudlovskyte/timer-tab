@@ -52,23 +52,17 @@
 		display: none;
 	}
 
-	[data-timer-mode="paused"] {
-		.pause.timer-button {
-			display: none;
-		}
-
-		.resume.timer-button {
-			display: inline;
-		}
+	.resume.timer-button {
+		display: none;
 	}
 
-	[data-timer-mode="resumed"] {
+	[data-paused] {
 		.pause.timer-button {
-			display: inline;
+			display: none;
 		}
 
 		.resume.timer-button {
-			display: none;
+			display: inline;
 		}
 	}
 

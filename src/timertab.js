@@ -13,6 +13,16 @@ $('[data-target-mode]').on('click', function(){
 	);
 });
 
+$('[data-target-pause]').on('click', function(){
+	// Changing attribute to trigger CSS selector changes
+	$('.content').attr('data-paused', '');
+});
+
+$('[data-target-resume]').on('click', function(){
+	// Changing attribute to trigger CSS selector changes
+	$('.content').removeAttr('data-paused');
+});
+
 
 $('form.countdown').on('submit', function(event){
 	event.preventDefault();
