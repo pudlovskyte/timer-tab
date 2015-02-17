@@ -1,41 +1,7 @@
 To Do:
-!Fix resume button after changing to another timer after pause
+
+?input taking up all remaining space 
+
+puslapio title ir favicona
+stop mygtukas
 *Spalvos ir permatomumai
-
-.timer-inactive .time-input {
-		&::-webkit-input-placeholder {
-			opacity: 0;
-		}
-	}
-
-
-
-.inactive { opacity: 0.3; }
-
-
-
-.timer { opacity: 0.3; }
-[mode="countdown"] .countdown,
-[mode="alarmclock"] .alarmclock,
-[mode="stopwatch"] .stopwatch {
-	opacity: 1;
-}
-
-
-[mode="countdown"] .alarmclock .time-input {
-	behave like .timer-inactive .time-input;
-}
-if (mode === countdown) {
-	.alarmclock.addClass('.timer-inactive');
-}
-
-.countdown .time-input {
-	&::-webkit-input-placeholder {
-		opacity: 0;
-	}
-}
-.mode-countdown .countdown .time-input {
-	&::-webkit-input-placeholder {
-		opacity: 1;
-	}
-}
