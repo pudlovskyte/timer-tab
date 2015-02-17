@@ -28,6 +28,7 @@ $('[data-target-resume]').on('click', function(){
 
 $('form.countdown').on('submit', function(event){
 	event.preventDefault();
+	$('.content').removeAttr('data-paused');
 	var t = userData.getInput($(event.target));
 	timer.countdown(3600*t.hours + 60*t.minutes + t.seconds);
 });
@@ -35,6 +36,7 @@ $('form.countdown').on('submit', function(event){
 
 $('form.alarmclock').on('submit', function(event){
 	event.preventDefault();
+	$('.content').removeAttr('data-paused');
 	var now = new Date();
 	var target = userData.getDate(now, $(event.target));
 	timer.countdown(Math.round((target - now) / 1000));
@@ -45,5 +47,6 @@ $('form.alarmclock').on('submit', function(event){
 
 $('form.stopwatch').on('submit', function(event){
 	event.preventDefault();
+	$('.content').removeAttr('data-paused');
 	timer.stopwatch();
 });
