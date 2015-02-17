@@ -5,6 +5,8 @@ var $ = require('jquery');
 var timer = require('./scripts/timer');
 var userData = require('./scripts/user-data');
 
+timer.stopwatch();
+
 $('[data-target-mode]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
 	$('.content').attr(
