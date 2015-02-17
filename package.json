@@ -17,7 +17,7 @@
   "scripts": {
     "http-server": "simple-server . 8000",
     "watch-less": "gulp",
-    "watch-js": "watchify . -o build/timertab.js",
+    "watch-js": "mkdir -p build && watchify . -o build/timertab.js",
     "start": "npm run watch-less & npm run watch-js & npm run http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
