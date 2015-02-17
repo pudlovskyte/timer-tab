@@ -1,16 +1,44 @@
 @media screen {
 
 	.timer-result-footer {
-		position: absolute;
+		width: 100%;
 		bottom: 0;
 
 	}
 
 	.settings {
+		padding-left: 0.5em;
+
+		background-color: @ComplementaryColor;
+		opacity: 0.8;
+
+		font-size: 0.9em;
 		text-align: left;
+
 	}
 
 	.settings-input {
 		display: block;
+		white-space: nowrap;
+
+		padding-left: 1.5em;
+		background-repeat: no-repeat;
+
+		&.video {
+			background-image: url("../resources/bell.svg");
+		}
+
+		&.background {
+			background-image: url("../resources/picture.svg");
+		}
+
+		&.name {
+			background-image: url("../resources/tag.svg");
+		}
+
+		input {
+			border: 1px solid fadein(@SplashColor, 10%);
+		}
 	}
+
 }
