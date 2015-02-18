@@ -31,15 +31,13 @@
 	}
 
 	.inner-content {
+		display: inline-block;
+
 		width: 60vw;
-		min-height: 33%;
+		height: 33%;
 		vertical-align: top;
 
 		box-shadow: 50vw 0 0 0 @SplashColor, -50vw 0 0 0 @SplashColor;
-
-		display: inline-flex;
- 	 	flex-direction: column;
-  		justify-content: center;
 	}
 
 	[data-mode="countdown"] .inner-content {
@@ -57,12 +55,22 @@
 		margin-left : 0%;
 	}
 
+	.timer-result-wrapper {
+		display: flex;
+		flex-direction: column;
+  		justify-content: center;
+
+  		height: 100%;
+	}
+
 	.timer-result {
 		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	.alarm-video {
 		display: none;
+		height: 100%;
 	}
 
 	.bottom-block {
