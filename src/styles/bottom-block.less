@@ -4,14 +4,41 @@
 		width: 100%;
 	}
 
+	.settings-wrapper {
+		position: relative;
+		padding: 0.5em 0;
+
+		&::before {
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			content: " ";
+
+			background-image: url("../resources/gear.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 4.5em;
+			opacity: 0.7;
+			transition: opacity 1s;
+		}
+		&:hover::before {
+			opacity: 0;
+			transition: opacity 1s;
+		}
+	}
+
 	.settings {
-		padding: 1em 0.5em 1em 0.5em;
+		opacity: 0;
 
+		padding: 1em 0.5em;
 		background-color: @ComplementaryColor;
-		opacity: 0.85;
-
 		font-size: 0.9em;
 		text-align: left;
+		transition: opacity 1s;
+
+		&:hover {
+			opacity: 0.8;
+			transition: opacity 0.5s;
+		}
 	}
 
 	.settings-item {
