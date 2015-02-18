@@ -1,12 +1,17 @@
 @media screen {
+
 	.timer-result-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		flex-grow: 1;
+
 		width: 33%;
-		min-height: 70%;
 		text-align: center;
 
 		background-color: @SplashColor;
-		box-shadow: 0 50vh 0 0 @SplashColor, 0 -50vh 0 0 @SplashColor;
-
+		box-shadow: 0 -50vh 0 0 @SplashColor;
 
 		transition: margin 0.25s;
 	}
@@ -92,7 +97,7 @@
 		}
 	}
 
-	.alarm-video{
+	.alarm-video {
 		width: 100%;
 	}
 }
