@@ -1,5 +1,17 @@
 @media screen {
 
+	.timer-name {
+		width: 33%;
+		min-height: 1.1em; /* min-height = font-size (current = 1em) * line-height */
+		margin: 0.5em 0;
+
+		text-align: center;
+		font-size: 2em;
+		line-height: 1.1;
+
+		transition: margin 0.25s;
+	}
+
 	.inner-content {
 		display: flex;
 		flex-direction: column;
@@ -16,15 +28,18 @@
 		transition: margin 0.25s;
 	}
 
-	[data-mode="countdown"] .inner-content {
+	[data-mode="countdown"] .inner-content,
+	[data-mode="countdown"] .timer-name {
 		margin-left : 0%;
 	}
 
-	[data-mode="alarmclock"] .inner-content {
+	[data-mode="alarmclock"] .inner-content,
+	[data-mode="alarmclock"] .timer-name {
 		margin-left : 33.3%;
 	}
 
-	[data-mode="stopwatch"] .inner-content {
+	[data-mode="stopwatch"] .inner-content,
+	[data-mode="stopwatch"] .timer-name {
 		margin-left : 67%;
 	}
 
