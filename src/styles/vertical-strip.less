@@ -58,6 +58,12 @@
 		background-repeat: no-repeat;
 	}
 
+	.stop-button-text {
+		padding-left: 1.6em;
+		background-image: url("../resources/stop.svg");
+		background-repeat: no-repeat;
+	}
+
 	.reminder-text{
 		opacity: 0.8;
 	}
@@ -66,7 +72,8 @@
 		display: none;
 	}
 
-	.resume.timer-button {
+	.resume.timer-button,
+	.stop.timer-button {
 		display: none;
 	}
 
@@ -92,7 +99,9 @@
 			display: inline;
 		}
 
-		.pause.timer-button, .resume.timer-button {
+		.pause.timer-button,
+		.resume.timer-button,
+		.stop.timer-button {
 			display: none;
 		}
 	}
