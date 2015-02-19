@@ -12,14 +12,16 @@
 			position: absolute;
 			top: 0; left: 0; right: 0; bottom: 0;
 			content: " ";
+			opacity: 0.7;
 
 			background-image: url("../resources/gear.svg");
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 4.5em;
-			opacity: 0.7;
+
 			transition: opacity 1s;
 		}
+
 		&:hover::before {
 			opacity: 0;
 			transition: opacity 1s;
@@ -28,7 +30,6 @@
 
 	.settings {
 		opacity: 0;
-
 		padding: 1em 0.5em;
 		background-color: fadeout(@ComplementaryColor, 10%);
 		font-size: 0.9em;
@@ -44,7 +45,6 @@
 	.settings-item {
 		display: flex;
 		white-space: nowrap;
-
 		padding-left: 1.5em;
 		background-repeat: no-repeat;
 
@@ -63,7 +63,6 @@
 		input {
 			flex-grow: 1;
 			margin: 0 0.3em;
-
 			border: 1px solid fadein(@SplashColor, 10%);
 		}
 	}
