@@ -7,7 +7,7 @@
 	body {
 		height: 100%;
 		margin: 0;
-		background-color: @MainColor;
+		background-color: @BackgroundColor;
 		background-image: none;
 		background-size: cover;
 		background-position: center;
@@ -20,12 +20,12 @@
 	}
 
 	input, button {
-		background: @ComplementaryColor;
+		background: @InputColor;
 		border-radius: 5px;
 		border: none;
 
 		&:hover, &:focus {
-			background: fadein(@ComplementaryColor, 30%);
+			background: fadein(@InputColor, 30%);
 		}
 	}
 
