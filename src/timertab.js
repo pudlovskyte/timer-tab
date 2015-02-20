@@ -5,6 +5,7 @@ var $ = require('jquery');
 var timer = require('./scripts/timer');
 var userData = require('./scripts/user-data');
 
+$('.content').attr('data-timer-in-progress', '');
 timer.stopwatch();
 
 $('[data-target-mode]').on('click', function(){
@@ -29,12 +30,14 @@ $('[data-target-resume]').on('click', function(){
 
 $('[data-target-stop]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
+	$('.content').removeAttr('data-timer-in-progress');
 	$('.content').removeAttr('data-alarm');
 });
 
 
 $('form.countdown').on('submit', function(event){
 	event.preventDefault();
+	$('.content').attr('data-timer-in-progress', '');
 	$('.content').removeAttr('data-paused');
 	$('.content').removeAttr('data-alarm');
 	var t = userData.getInput($(event.target));
@@ -44,6 +47,7 @@ $('form.countdown').on('submit', function(event){
 
 $('form.alarmclock').on('submit', function(event){
 	event.preventDefault();
+	$('.content').attr('data-timer-in-progress', '');
 	$('.content').removeAttr('data-paused');
 	$('.content').removeAttr('data-alarm');
 	var now = new Date();
@@ -56,6 +60,7 @@ $('form.alarmclock').on('submit', function(event){
 
 $('form.stopwatch').on('submit', function(event){
 	event.preventDefault();
+	$('.content').attr('data-timer-in-progress', '');
 	$('.content').removeAttr('data-paused');
 	$('.content').removeAttr('data-alarm');
 	timer.stopwatch();
