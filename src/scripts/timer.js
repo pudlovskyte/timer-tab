@@ -34,7 +34,7 @@ var countdown = function(seconds){
 			countdown(seconds - 1);
 		}, 1000);
 	} else {
-
+		$('.content').attr('data-alarm', '');
 	}
 };
 

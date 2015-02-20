@@ -115,6 +115,22 @@
 	}
 
 	.alarm-video {
+		display: none;
 		width: 100%;
+	}
+
+	[data-alarm] {
+		.alarm-video {
+			display: block;
+		}
+
+		.stop.timer-button {
+			display: inline;
+		}
+
+		.alarm-reminder,
+		.pause.timer-button {
+			display: none;
+		}
 	}
 }

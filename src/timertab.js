@@ -27,10 +27,16 @@ $('[data-target-resume]').on('click', function(){
 	timer.resume();
 });
 
+$('[data-target-stop]').on('click', function(){
+	// Changing attribute to trigger CSS selector changes
+	$('.content').removeAttr('data-alarm');
+});
+
 
 $('form.countdown').on('submit', function(event){
 	event.preventDefault();
 	$('.content').removeAttr('data-paused');
+	$('.content').removeAttr('data-alarm');
 	var t = userData.getInput($(event.target));
 	timer.countdown(3600*t.hours + 60*t.minutes + t.seconds);
 });
@@ -39,6 +45,7 @@ $('form.countdown').on('submit', function(event){
 $('form.alarmclock').on('submit', function(event){
 	event.preventDefault();
 	$('.content').removeAttr('data-paused');
+	$('.content').removeAttr('data-alarm');
 	var now = new Date();
 	var target = userData.getDate(now, $(event.target));
 	timer.countdown(Math.round((target - now) / 1000));
@@ -50,5 +57,6 @@ $('form.alarmclock').on('submit', function(event){
 $('form.stopwatch').on('submit', function(event){
 	event.preventDefault();
 	$('.content').removeAttr('data-paused');
+	$('.content').removeAttr('data-alarm');
 	timer.stopwatch();
 });
