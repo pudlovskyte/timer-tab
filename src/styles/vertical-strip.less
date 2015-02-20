@@ -28,27 +28,6 @@
 		transition: margin 0.25s;
 	}
 
-	[data-mode="countdown"] {
-		.inner-content,
-		.timer-name {
-			margin-left : 0%;
-		}
-	}
-
-	[data-mode="alarmclock"] {
-		.inner-content,
-		.timer-name {
-			margin-left : 33.3%;
-		}
-	}
-
-	[data-mode="stopwatch"] {
-		.inner-content,
-		.timer-name {
-			margin-left : 67%;
-		}
-	}
-
 	.timer-result {
 		margin-top: 1em;
 		margin-bottom: 1em;
@@ -56,14 +35,6 @@
 
 	.counter {
 		font-size: 4.3em;
-	}
-
-	[data-counter-size="medium"] {
-		font-size: 6.3em;
-	}
-
-	[data-counter-size="big"] {
-		font-size: 7em;
 	}
 
 	.pause .timer-button-text {
@@ -91,52 +62,8 @@
 		display: none;
 	}
 
-	[data-paused] {
-		.pause.timer-button {
-			display: none;
-		}
-
-		.resume.timer-button {
-			display: inline;
-		}
-	}
-
-	[data-mode="countdown"],
-	[data-mode="stopwatch"] {
-		.alarm-reminder {
-			display: none;
-		}
-	}
-
-	[data-mode="alarmclock"] {
-		.alarm-reminder {
-			display: inline;
-		}
-
-		.pause.timer-button,
-		.resume.timer-button,
-		.stop.timer-button {
-			display: none;
-		}
-	}
-
 	.alarm-video {
 		display: none;
 		width: 100%;
-	}
-
-	[data-alarm] {
-		.alarm-video {
-			display: block;
-		}
-
-		.stop.timer-button {
-			display: inline;
-		}
-
-		.alarm-reminder,
-		.pause.timer-button {
-			display: none;
-		}
 	}
 }
