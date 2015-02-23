@@ -24,17 +24,17 @@ module.exports = function(){
 		clearTimeout(timer);
 	};
 
-	var countdown = function(seconds, $counter){
+	var countdown = function(seconds, $counter, $content){
 		stop();
 		currentMode = 'countdown';
 		currentSeconds = seconds;
 		display(seconds, $counter);
 		if (seconds > 0) {
 			timer = setTimeout(function(){
-				countdown(seconds - 1, $counter);
+				countdown(seconds - 1, $counter, $content);
 			}, 1000);
 		} else {
-			$('.content').attr('data-alarm', '');
+			$content.attr('data-alarm', '');
 		}
 	};
 
@@ -53,10 +53,13 @@ module.exports = function(){
 		stop();
 	};
 
-	var resume = function($counter){
+	var resume = function($counter, $content){
 		if (!currentMode) return;
-		var f = currentMode === 'countdown' ? countdown : stopwatch;
-		f(currentSeconds, $counter);
+		if (currentMode === 'countdown') {
+			countdown(currentSeconds, $counter, $content);
+		} else {
+			stopwatch(currentSeconds, $counter);
+		}
 	};
 
 	return {
