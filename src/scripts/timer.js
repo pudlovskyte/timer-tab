@@ -54,12 +54,8 @@ module.exports = function(){
 	};
 
 	var resume = function($counter, $content){
-		if (!currentMode) return;
-		if (currentMode === 'countdown') {
-			countdown(currentSeconds, $counter, $content);
-		} else {
-			stopwatch(currentSeconds, $counter);
-		}
+		if (currentMode === 'countdown') countdown(currentSeconds, $counter, $content);
+		if (currentMode === 'stopwatch') stopwatch(currentSeconds, $counter);
 	};
 
 	return {
