@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 
-var timer = require('./scripts/timer');
+var timer = require('./scripts/timer')();
 var userData = require('./scripts/user-data');
 
 $('.content').attr('data-timer-in-progress', '');
