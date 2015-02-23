@@ -9,7 +9,7 @@ var getCounterSize = function(seconds){
 	return 'small';
 };
 
-var display = function($counter, seconds){
+var display = function(seconds, $counter){
 	$counter.text(formatTime(seconds));
 	$counter.attr('data-counter-size', getCounterSize(seconds));
 };
@@ -24,28 +24,28 @@ module.exports = function(){
 		clearTimeout(timer);
 	};
 
-	var countdown = function(seconds){
+	var countdown = function(seconds, $counter){
 		stop();
 		currentMode = 'countdown';
 		currentSeconds = seconds;
-		display($('.counter'), seconds);
+		display(seconds, $counter);
 		if (seconds > 0) {
 			timer = setTimeout(function(){
-				countdown(seconds - 1);
+				countdown(seconds - 1, $counter);
 			}, 1000);
 		} else {
 			$('.content').attr('data-alarm', '');
 		}
 	};
 
-	var stopwatch = function(seconds){
-		seconds = seconds || 0;
+	var stopwatch = function(seconds, $counter){
+		//seconds = seconds || 0;
 		stop();
 		currentMode = 'stopwatch';
 		currentSeconds = seconds;
-		display($('.counter'), seconds);
+		display(seconds, $counter);
 		timer = setTimeout(function(){
-			stopwatch(seconds + 1);
+			stopwatch(seconds + 1, $counter);
 		}, 1000);
 	};
 
@@ -53,10 +53,10 @@ module.exports = function(){
 		stop();
 	};
 
-	var resume = function(){
+	var resume = function($counter){
 		if (!currentMode) return;
 		var f = currentMode === 'countdown' ? countdown : stopwatch;
-		f(currentSeconds);
+		f(currentSeconds, $counter);
 	};
 
 	return {
