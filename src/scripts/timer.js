@@ -1,6 +1,9 @@
 'use strict';
 
+var EventEmitter = require('events').EventEmitter;
+
 module.exports = function(){
+	var ee = new EventEmitter();
 
 	var timer;
 	var currentMode;
@@ -10,28 +13,28 @@ module.exports = function(){
 		clearTimeout(timer);
 	};
 
-	var countdown = function(seconds, callback, onEnd){
+	var countdown = function(seconds){
 		stop();
 		currentMode = 'countdown';
 		currentSeconds = seconds;
-		callback(seconds);
+		ee.emit('step', seconds);
 		if (seconds > 0) {
 			timer = setTimeout(function(){
-				countdown(seconds - 1, callback, onEnd);
+				countdown(seconds - 1);
 			}, 1000);
 		} else {
-			onEnd();
+			ee.emit('end');
 		}
 	};
 
-	var stopwatch = function(seconds, callback){
-		//seconds = seconds || 0;
+	var stopwatch = function(seconds){
+		seconds = seconds || 0;
 		stop();
 		currentMode = 'stopwatch';
 		currentSeconds = seconds;
-		callback(seconds);
+		ee.emit('step', seconds);
 		timer = setTimeout(function(){
-			stopwatch(seconds + 1, callback);
+			stopwatch(seconds + 1);
 		}, 1000);
 	};
 
@@ -39,15 +42,16 @@ module.exports = function(){
 		stop();
 	};
 
-	var resume = function(callback, onEnd){
-		if (currentMode === 'countdown') countdown(currentSeconds, callback, onEnd);
-		if (currentMode === 'stopwatch') stopwatch(currentSeconds, callback);
+	var resume = function(){
+		if (currentMode === 'countdown') countdown(currentSeconds);
+		if (currentMode === 'stopwatch') stopwatch(currentSeconds);
 	};
 
 	return {
 		countdown: countdown,
 		stopwatch: stopwatch,
 		pause: pause,
-		resume: resume
+		resume: resume,
+		on: ee.on.bind(ee)
 	};
 };
