@@ -15,9 +15,9 @@ var getCounterSize = function(seconds){
 	return 'small';
 };
 
-var display = function(seconds){
-	$('.counter').text(formatTime(seconds));
-	$('.counter').attr('data-counter-size', getCounterSize(seconds));
+var display = function($counter, seconds){
+	$counter.text(formatTime(seconds));
+	$counter.attr('data-counter-size', getCounterSize(seconds));
 };
 
 var stop = function(){
@@ -28,7 +28,7 @@ var countdown = function(seconds){
 	stop();
 	currentMode = 'countdown';
 	currentSeconds = seconds;
-	display(seconds);
+	display($('.counter'), seconds);
 	if (seconds > 0) {
 		timer = setTimeout(function(){
 			countdown(seconds - 1);
@@ -43,7 +43,7 @@ var stopwatch = function(seconds){
 	stop();
 	currentMode = 'stopwatch';
 	currentSeconds = seconds;
-	display(seconds);
+	display($('.counter'), seconds);
 	timer = setTimeout(function(){
 		stopwatch(seconds + 1);
 	}, 1000);
