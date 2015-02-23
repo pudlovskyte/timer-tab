@@ -3,10 +3,15 @@
 var $ = require('jquery');
 
 var timer = require('./scripts/timer')();
+var timerDisplay = require('./scripts/timer-display')($('.counter'));
 var userData = require('./scripts/user-data');
 
+var onEnd = function(){
+	$('.content').attr('data-alarm', '');
+};
+
 $('.content').attr('data-timer-in-progress', '');
-timer.stopwatch(0, $('.counter'));
+timer.stopwatch(0, timerDisplay);
 
 $('[data-target-mode]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
@@ -25,7 +30,7 @@ $('[data-target-pause]').on('click', function(){
 $('[data-target-resume]').on('click', function(){
 	// Changing attribute to trigger CSS selector changes
 	$('.content').removeAttr('data-paused');
-	timer.resume($('.counter'), $('.content'));
+	timer.resume(timerDisplay, onEnd);
 });
 
 $('[data-target-stop]').on('click', function(){
@@ -43,8 +48,8 @@ $('form.countdown').on('submit', function(event){
 	var t = userData.getInput($(event.target));
 	timer.countdown(
 		3600*t.hours + 60*t.minutes + t.seconds,
-		$('.counter'),
-		$('.content'));
+		timerDisplay,
+		onEnd);
 });
 
 
@@ -57,8 +62,8 @@ $('form.alarmclock').on('submit', function(event){
 	var target = userData.getDate(now, $(event.target));
 	timer.countdown(
 		Math.round((target - now) / 1000),
-		$('.counter'),
-		$('.content'));
+		timerDisplay,
+		onEnd);
 
 	$('.alarm-time').text(target.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'}));
 });
@@ -69,5 +74,5 @@ $('form.stopwatch').on('submit', function(event){
 	$('.content').attr('data-timer-in-progress', '');
 	$('.content').removeAttr('data-paused');
 	$('.content').removeAttr('data-alarm');
-	timer.stopwatch(0, $('.counter'));
+	timer.stopwatch(0, timerDisplay);
 });

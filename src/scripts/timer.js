@@ -1,19 +1,5 @@
 'use strict';
 
-var $ = require('jquery');
-var formatTime = require('./format-time');
-
-var getCounterSize = function(seconds){
-	if (seconds < 60) return 'big';
-	if (seconds < 3600) return 'medium';
-	return 'small';
-};
-
-var display = function(seconds, $counter){
-	$counter.text(formatTime(seconds));
-	$counter.attr('data-counter-size', getCounterSize(seconds));
-};
-
 module.exports = function(){
 
 	var timer;
@@ -24,28 +10,28 @@ module.exports = function(){
 		clearTimeout(timer);
 	};
 
-	var countdown = function(seconds, $counter, $content){
+	var countdown = function(seconds, callback, onEnd){
 		stop();
 		currentMode = 'countdown';
 		currentSeconds = seconds;
-		display(seconds, $counter);
+		callback(seconds);
 		if (seconds > 0) {
 			timer = setTimeout(function(){
-				countdown(seconds - 1, $counter, $content);
+				countdown(seconds - 1, callback, onEnd);
 			}, 1000);
 		} else {
-			$content.attr('data-alarm', '');
+			onEnd();
 		}
 	};
 
-	var stopwatch = function(seconds, $counter){
+	var stopwatch = function(seconds, callback){
 		//seconds = seconds || 0;
 		stop();
 		currentMode = 'stopwatch';
 		currentSeconds = seconds;
-		display(seconds, $counter);
+		callback(seconds);
 		timer = setTimeout(function(){
-			stopwatch(seconds + 1, $counter);
+			stopwatch(seconds + 1, callback);
 		}, 1000);
 	};
 
@@ -53,9 +39,9 @@ module.exports = function(){
 		stop();
 	};
 
-	var resume = function($counter, $content){
-		if (currentMode === 'countdown') countdown(currentSeconds, $counter, $content);
-		if (currentMode === 'stopwatch') stopwatch(currentSeconds, $counter);
+	var resume = function(callback, onEnd){
+		if (currentMode === 'countdown') countdown(currentSeconds, callback, onEnd);
+		if (currentMode === 'stopwatch') stopwatch(currentSeconds, callback);
 	};
 
 	return {
