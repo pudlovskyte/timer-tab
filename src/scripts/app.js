@@ -5,24 +5,26 @@ var timerDisplayFactory = require('./timer-display');
 
 module.exports = function($){
 
+	var youtubeAlarmId = '3Be7fy1dx14';
+
 	var timer = timerFactory();
 	var timerDisplay = timerDisplayFactory($('.counter'));
 
-	var addVideo = function(id){
+	var turnOnAlarm = function(){
 		$('.content').attr('data-alarm', '');
 		$('<iframe>')
 			.addClass('alarm-video')
 			.prop(
 				'src',
-				'https://www.youtube.com/embed/'.concat(id, '?rel=0&controls=0&showinfo=0&autoplay=1')
+				'https://www.youtube.com/embed/' +
+					encodeURIComponent(youtubeAlarmId) +
+					'?rel=0&controls=0&showinfo=0&autoplay=1'
 			)
 			.appendTo('.timer-result-wrapper');
 	};
 
 	timer.on('step', timerDisplay);
-	timer.on('end', function(){
-		addVideo('3Be7fy1dx14');
-	});
+	timer.on('end', turnOnAlarm);
 
 	var setMode = function(mode){
 		$('.content').attr('data-mode', mode);
