@@ -52,6 +52,7 @@ module.exports = function(){
 		stopwatch: stopwatch,
 		pause: pause,
 		resume: resume,
+		stop: stop,
 		on: ee.on.bind(ee)
 	};
 };
