@@ -4,10 +4,11 @@ var timerFactory = require('./timer');
 var timerDisplayFactory = require('./timer-display');
 
 module.exports = function($){
+
 	var timer = timerFactory();
 	var timerDisplay = timerDisplayFactory($('.counter'));
-	timer.on('step', timerDisplay);
 
+	timer.on('step', timerDisplay);
 	timer.on('end', function(){
 		$('.content').attr('data-alarm', '');
 	});
