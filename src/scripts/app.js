@@ -8,16 +8,20 @@ module.exports = function($){
 	var timer = timerFactory();
 	var timerDisplay = timerDisplayFactory($('.counter'));
 
-	timer.on('step', timerDisplay);
-	timer.on('end', function(){
+	var addVideo = function(id){
 		$('.content').attr('data-alarm', '');
 		$('<iframe>')
 			.addClass('alarm-video')
 			.prop(
 				'src',
-				'https://www.youtube.com/embed/3Be7fy1dx14?rel=0&controls=0&showinfo=0&autoplay=1'
+				'https://www.youtube.com/embed/'.concat(id, '?rel=0&controls=0&showinfo=0&autoplay=1')
 			)
 			.appendTo('.timer-result-wrapper');
+	};
+
+	timer.on('step', timerDisplay);
+	timer.on('end', function(){
+		addVideo('3Be7fy1dx14');
 	});
 
 	var setMode = function(mode){
