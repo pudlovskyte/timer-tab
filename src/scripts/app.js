@@ -11,6 +11,13 @@ module.exports = function($){
 	timer.on('step', timerDisplay);
 	timer.on('end', function(){
 		$('.content').attr('data-alarm', '');
+		$('<iframe>')
+			.addClass('alarm-video')
+			.prop(
+				'src',
+				'https://www.youtube.com/embed/3Be7fy1dx14?rel=0&controls=0&showinfo=0&autoplay=1'
+			)
+			.appendTo('.timer-result-wrapper');
 	});
 
 	var setMode = function(mode){
@@ -18,9 +25,8 @@ module.exports = function($){
 	};
 
 	var start = function(){
+		app.stop();
 		$('.content').attr('data-timer-in-progress', '');
-		$('.content').removeAttr('data-paused');
-		$('.content').removeAttr('data-alarm');
 	};
 
 	var app = {};
@@ -37,7 +43,9 @@ module.exports = function($){
 
 	app.stop = function(){
 		$('.content').removeAttr('data-timer-in-progress');
+		$('.content').removeAttr('data-paused');
 		$('.content').removeAttr('data-alarm');
+		$('.alarm-video').remove();
 		timer.stop();
 	};
 
