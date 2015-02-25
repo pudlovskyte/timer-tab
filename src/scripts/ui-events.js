@@ -1,6 +1,7 @@
 'use strict';
 
 var userData = require('./user-data');
+var getYoutubeIdFromUrl = require('./youtube-id-from-url');
 
 module.exports = function($, app){
 	$('[data-target-pause]').on('click', app.pause);
@@ -23,5 +24,19 @@ module.exports = function($, app){
 	$('form.stopwatch').on('submit', function(event){
 		event.preventDefault();
 		app.stopwatch();
+	});
+
+
+	$('.settings-item.video input').on('change', function(event){
+		app.changeYoutubeAlarm(
+			getYoutubeIdFromUrl($(event.target).val()));
+	});
+
+	$('.settings-item.background input').on('change', function(event){
+		app.changeBackground($(event.target).val());
+	});
+
+	$('.settings-item.name input').on('change', function(event){
+		app.changeName($(event.target).val());
 	});
 };

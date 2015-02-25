@@ -5,10 +5,10 @@ var timerDisplayFactory = require('./timer-display');
 
 module.exports = function($){
 
-	var youtubeAlarmId = '3Be7fy1dx14';
-
 	var timer = timerFactory();
 	var timerDisplay = timerDisplayFactory($('.counter'));
+
+	var youtubeAlarmId = '3Be7fy1dx14';
 
 	var turnOnAlarm = function(){
 		$('.content').attr('data-alarm', '');
@@ -36,6 +36,21 @@ module.exports = function($){
 	};
 
 	var app = {};
+
+	app.changeYoutubeAlarm = function(id){
+		youtubeAlarmId = id;
+	};
+
+	app.changeBackground = function(url){
+		$('body').css(
+			'background-image',
+			url ? 'url("' + url.replace(/"/g, '\\"') + '")' : 'none'
+		);
+	};
+
+	app.changeName = function(name){
+		$('.timer-name').text(name);
+	};
 
 	app.pause = function(){
 		$('.content').attr('data-paused', '');
