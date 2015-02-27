@@ -36,7 +36,7 @@ module.exports = function($, app){
 		app.changeBackground($(event.target).val());
 	});
 
-	$('.settings-item.name input').on('keyup, change', function(event){
+	$('.settings-item.name input').on('keyup change', function(event){
 		app.changeName($(event.target).val());
 	});
 };
