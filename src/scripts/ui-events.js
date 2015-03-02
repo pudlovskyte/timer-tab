@@ -48,4 +48,10 @@ module.exports = function($, app){
 	$('.settings input').on('blur', function(){
 		$('.settings-wrapper').removeClass('pinned');
 	});
+
+
+	$('.counter').on('click', function(){
+		if ($('body').hasClass('zoomed')) app.zoom.reset();
+		else app.zoom();
+	});
 };

@@ -2,9 +2,11 @@
 
 var timerFactory = require('./timer');
 var timerDisplayFactory = require('./timer-display');
+var zoomFactory = require('./zoom.js');
 
-module.exports = function($){
+module.exports = function($, window){
 
+	var zoom = zoomFactory(window, $('body'));
 	var timer = timerFactory();
 	var timerDisplay = timerDisplayFactory($('.counter'));
 
@@ -89,6 +91,16 @@ module.exports = function($){
 		start();
 		timer.stopwatch();
 		setMode('stopwatch');
+	};
+
+	app.zoom = function(){
+		$('body').addClass('zoomed');
+		zoom.enable($('.counter'));
+	};
+
+	app.zoom.reset = function(){
+		$('body').removeClass('zoomed');
+		zoom.reset();
 	};
 
 	return app;
