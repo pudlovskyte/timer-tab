@@ -26,6 +26,15 @@
 			opacity: 0;
 			transition: opacity 0.8s;
 		}
+
+		&.pinned {
+			&::before {
+				opacity: 0;
+			}
+			.settings {
+				opacity: 0.9;
+			}
+		}
 	}
 
 	.settings {

@@ -39,4 +39,13 @@ module.exports = function($, app){
 	$('.settings-item.name input').on('keyup change', function(event){
 		app.changeName($(event.target).val());
 	});
+
+
+	$('.settings input').on('focus', function(){
+		$('.settings-wrapper').addClass('pinned');
+	});
+
+	$('.settings input').on('blur', function(){
+		$('.settings-wrapper').removeClass('pinned');
+	});
 };
