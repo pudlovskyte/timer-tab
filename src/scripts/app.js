@@ -54,6 +54,10 @@ module.exports = function($, window){
 		$('.timer-name').text(name);
 	};
 
+	app.isPaused = function(){
+		return $('.content').is('[data-paused]');
+	};
+
 	app.pause = function(){
 		$('.content').attr('data-paused', '');
 		timer.pause();
