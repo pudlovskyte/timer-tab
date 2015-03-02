@@ -10,14 +10,20 @@
 	<h1 class=timer-name></h1>
 
 	<div class=timer-choice>
-		<form class="timer countdown">
+		<form name=countdown class="timer countdown">
 			<fieldset class="timer-control-block timer-input-wrapper">
 				<label class=hours>
-					<input class=timer-input type=number min="0" placeholder="h"></label>
+					<input name=hours class=timer-input
+						type=number min="0" placeholder="h">
+				</label>
 				<label class=minutes>
-					<input class=timer-input type=number min="0" placeholder="m"></label>
+					<input name=minutes class=timer-input
+						type=number min="0" placeholder="m">
+				</label>
 				<label class=seconds>
-					<input class=timer-input type=number min="0" placeholder="s"></label>
+					<input name=seconds class=timer-input
+						type=number min="0" placeholder="s">
+				</label>
 			</fieldset>
 
 			<fieldset class=timer-control-block>
@@ -25,14 +31,20 @@
 					<span class=timer-button-text>Start countdown</span></button>
 			</fieldset>
 		</form>
-		<form class="timer alarmclock">
+		<form name=alarmclock class="timer alarmclock">
 			<fieldset class="timer-control-block timer-input-wrapper">
 				<label class=hours>
-					<input class=timer-input type=number min="0" placeholder="h"></label>
+					<input name=hours class=timer-input
+						type=number min="0" placeholder="h">
+				</label>
 				<label class=minutes>
-					<input class=timer-input type=number min="0" placeholder="m"></label>
+					<input name=minutes class=timer-input
+						type=number min="0" placeholder="m">
+				</label>
 				<label class=seconds>
-					<input class=timer-input type=number min="0" placeholder="s"></label>
+					<input name=seconds class=timer-input
+						type=number min="0" placeholder="s">
+				</label>
 			</fieldset>
 
 			<fieldset class=timer-control-block>
@@ -40,7 +52,7 @@
 					<span class=timer-button-text>Start alarm clock</span></button>
 			</fieldset>
 		</form>
-		<form class="timer stopwatch">
+		<form name=stopwatch class="timer stopwatch">
 			<fieldset class=timer-control-block>
 				<button class="start timer-button" data-target-mode=stopwatch>
 					<span class=timer-button-text>Start stopwatch</span></button>
@@ -73,16 +85,16 @@
 
 		<div class=bottom-block>
 			<div class=settings-wrapper>
-				<form class=settings>
+				<form name=settings class=settings>
 					<label class="video settings-item">
 						<span>YouTube Alarm:</span>
-						<input type=url placeholder="https://www.youtube.com/watch?v=3Be7fy1dx14"></label>
+						<input name=video type=url placeholder="https://www.youtube.com/watch?v=3Be7fy1dx14"></label>
 					<label class="background settings-item">
 						<span>Background:</span>
-						<input type=url></label>
+						<input name=background type=url></label>
 					<label class="name settings-item">
 						<span>Name:</span>
-						<input type=text></label>
+						<input name=name type=text></label>
 				</form>
 			</div>
 			<footer>
