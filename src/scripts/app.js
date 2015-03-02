@@ -99,7 +99,7 @@ module.exports = function($, window){
 
 	app.zoom = function(){
 		$('body').addClass('zoomed');
-		zoom.enable($('.counter'));
+		zoom.enable($('.timer-result'));
 	};
 
 	app.zoom.reset = function(){
