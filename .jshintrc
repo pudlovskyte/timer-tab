@@ -4,6 +4,7 @@
 
   "bitwise": true,
   "eqeqeq": true,
+  "esnext": true,
   "forin": true,
   "latedef": true,
   "noarg": true,
