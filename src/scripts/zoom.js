@@ -1,7 +1,10 @@
 'use strict';
 
 var calczoom = function($body, $target, window){
-	var scale = window.innerWidth / $target.width();
+	var scale = Math.min(
+		window.innerWidth / $target.width(),
+		window.innerHeight / $target.height()
+	);
 	var targetX = window.innerWidth / 2 - ($target.width() / 2);
 	var targetY = window.innerHeight / 2 - ($target.height() / 2);
 	var {top, left} = $target.offset();
