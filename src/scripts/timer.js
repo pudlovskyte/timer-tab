@@ -27,8 +27,7 @@ module.exports = function(){
 		}
 	};
 
-	var stopwatch = function(seconds){
-		seconds = seconds || 0;
+	var stopwatch = function(seconds=0){
 		stop();
 		currentMode = 'stopwatch';
 		currentSeconds = seconds;
