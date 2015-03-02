@@ -8,6 +8,17 @@ module.exports = function($, app){
 	$('[data-target-resume]').on('click', app.resume);
 	$('[data-target-stop]').on('click', app.stop);
 
+	$('body').on('keyup', function(event){
+		if ($(event.target).is('a, input, textarea, button'))
+			return;
+		// 32 is the code for space. Spaaaace.
+		if (event.keyCode !== 32)
+			return;
+
+		if (app.isPaused()) app.resume();
+		else app.pause();
+	});
+
 	$('form.countdown').on('submit', function(event){
 		event.preventDefault();
 		var t = userData.getInput($(event.target));
