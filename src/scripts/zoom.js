@@ -30,7 +30,22 @@ var calczoom = function($body, $target, window){
 module.exports = function(window, $body){
 
 	var zoom = function($target){
+		// Save transition to restore later
+		var transition = $body.css('transition');
+
+		// If we are in the middle of a transition when we compute zoom,
+		// we get unexpected positioning values and compute zoom towards a wrong
+		// position.
+		// To work around that, we disable all body transitions for a moment,
+		// the body snaps to the correct position, and we calculate zoom
+		// based on that, which will be correct.
+		// We later restore the transition as soon as we can.
+		$body.css('transition', 'none');
+
 		var transforms = calczoom($body, $target, window);
+
+		$body.css('transition', transition);
+
 		$body.css('transform',
 			transforms
 				.map(function(transform){
