@@ -52,11 +52,11 @@ module.exports = function($, app){
 	});
 
 
-	$('.settings input').on('focus', function(){
+	$('body').on('focus', '.settings input', function(){
 		$('.settings-wrapper').addClass('pinned');
 	});
 
-	$('.settings input').on('blur', function(){
+	$('body').on('blur', '.settings input', function(){
 		$('.settings-wrapper').removeClass('pinned');
 	});
 
