@@ -11,7 +11,7 @@ module.exports = function($, window){
 		});
 	}, 5);
 
-	$('input').on('change', function(event){
+	$('body').on('change', 'input', function(event){
 		var $input = $(event.target);
 		// Forms receive dynamic properties named after the names of its inputs
 		// This means .prop('name') might unexpectedly return an <input name=name>,
