@@ -1,5 +1,6 @@
 'use strict';
 
+var resume = require('./resume');
 var timerFactory = require('./timer');
 var timerDisplayFactory = require('./timer-display');
 var zoomFactory = require('./zoom.js');
@@ -46,6 +47,10 @@ module.exports = function($, window){
 	timer.on('end', turnOnAlarm);
 
 	var app = {};
+
+	resume(app, timer, window.localStorage, function(){
+		return $('.content').attr('data-mode');
+	});
 
 	app.changeYoutubeAlarm = function(id){
 		youtubeAlarmId = id;
