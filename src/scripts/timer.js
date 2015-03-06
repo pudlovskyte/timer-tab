@@ -14,8 +14,6 @@ module.exports = function(){
 	};
 
 	var countdown = function(seconds){
-		stop();
-		currentMode = 'countdown';
 		currentSeconds = seconds;
 		ee.emit('step', seconds);
 		if (seconds > 0) {
@@ -28,8 +26,6 @@ module.exports = function(){
 	};
 
 	var stopwatch = function(seconds=0){
-		stop();
-		currentMode = 'stopwatch';
 		currentSeconds = seconds;
 		ee.emit('step', seconds);
 		timer = setTimeout(function(){
@@ -46,9 +42,20 @@ module.exports = function(){
 		if (currentMode === 'stopwatch') stopwatch(currentSeconds);
 	};
 
+	ee.on('start', function(mode){
+		stop();
+		currentMode = mode;
+	});
+
 	return {
-		countdown: countdown,
-		stopwatch: stopwatch,
+		countdown: function(seconds){
+			ee.emit('start', 'countdown');
+			countdown(seconds);
+		},
+		stopwatch: function(){
+			ee.emit('start', 'stopwatch');
+			stopwatch();
+		},
 		pause: pause,
 		resume: resume,
 		stop: stop,
