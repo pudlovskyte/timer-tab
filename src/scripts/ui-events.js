@@ -4,11 +4,11 @@ var userData = require('./user-data');
 var getYoutubeIdFromUrl = require('./youtube-id-from-url');
 
 module.exports = function($, app){
-	$('[data-target-pause]').on('click', app.pause);
-	$('[data-target-resume]').on('click', app.resume);
-	$('[data-target-stop]').on('click', app.stop);
+	$('body').on('click', '[data-target-pause]', app.pause);
+	$('body').on('click', '[data-target-resume]', app.resume);
+	$('body').on('click', '[data-target-stop]', app.stop);
 
-	$('body').on('keyup', function(event){
+	$('body').on('keyup', 'body', function(event){
 		if ($(event.target).is('a, input, textarea, button'))
 			return;
 		// 32 is the code for space. Spaaaace.
@@ -19,35 +19,35 @@ module.exports = function($, app){
 		else app.pause();
 	});
 
-	$('form.countdown').on('submit', function(event){
+	$('body').on('submit', 'form.countdown', function(event){
 		event.preventDefault();
 		var t = userData.getInput($(event.target));
 		app.countdown(3600*t.hours + 60*t.minutes + t.seconds);
 	});
 
-	$('form.alarmclock').on('submit', function(event){
+	$('body').on('submit', 'form.alarmclock', function(event){
 		event.preventDefault();
 		var now = new Date();
 		var target = userData.getDate(now, $(event.target));
 		app.alarmclock(now, target);
 	});
 
-	$('form.stopwatch').on('submit', function(event){
+	$('body').on('submit', 'form.stopwatch', function(event){
 		event.preventDefault();
 		app.stopwatch();
 	});
 
 
-	$('.settings-item.video input').on('change', function(event){
+	$('body').on('change', '.settings-item.video input', function(event){
 		app.changeYoutubeAlarm(
 			getYoutubeIdFromUrl($(event.target).val()));
 	});
 
-	$('.settings-item.background input').on('change', function(event){
+	$('body').on('change', '.settings-item.background input', function(event){
 		app.changeBackground($(event.target).val());
 	});
 
-	$('.settings-item.name input').on('keyup change', function(event){
+	$('body').on('keyup change', '.settings-item.name input', function(event){
 		app.changeName($(event.target).val());
 	});
 
@@ -61,7 +61,7 @@ module.exports = function($, app){
 	});
 
 
-	$('.counter').on('click', function(){
+	$('body').on('click', '.counter', function(){
 		if ($('body').hasClass('zoomed')) app.zoom.reset();
 		else app.zoom();
 	});
