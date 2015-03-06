@@ -32,6 +32,13 @@ module.exports = function($, window){
 		$('.content').attr('data-mode', mode);
 	};
 
+	var reset = function(){
+		$('.content').removeAttr('data-timer-in-progress');
+		$('.content').removeAttr('data-paused');
+		$('.content').removeAttr('data-alarm');
+		$('.alarm-video').remove();
+	};
+
 	var start = function(){
 		app.stop();
 		$('.content').attr('data-timer-in-progress', '');
@@ -69,10 +76,7 @@ module.exports = function($, window){
 	};
 
 	app.stop = function(){
-		$('.content').removeAttr('data-timer-in-progress');
-		$('.content').removeAttr('data-paused');
-		$('.content').removeAttr('data-alarm');
-		$('.alarm-video').remove();
+		reset();
 		timer.stop();
 	};
 
