@@ -25,9 +25,6 @@ module.exports = function($, window){
 			.appendTo('.timer-result-wrapper');
 	};
 
-	timer.on('step', timerDisplay);
-	timer.on('end', turnOnAlarm);
-
 	var setMode = function(mode){
 		$('.content').attr('data-mode', mode);
 	};
@@ -40,9 +37,13 @@ module.exports = function($, window){
 	};
 
 	var start = function(){
-		app.stop();
+		reset();
 		$('.content').attr('data-timer-in-progress', '');
 	};
+
+	timer.on('start', start);
+	timer.on('step', timerDisplay);
+	timer.on('end', turnOnAlarm);
 
 	var app = {};
 
@@ -81,7 +82,6 @@ module.exports = function($, window){
 	};
 
 	app.alarmclock = function(now, target){
-		start();
 		timer.countdown(Math.round((target - now) / 1000));
 		setMode('alarmclock');
 		$('.alarm-time').text(
@@ -90,13 +90,11 @@ module.exports = function($, window){
 	};
 
 	app.countdown = function(seconds){
-		start();
 		timer.countdown(seconds);
 		setMode('countdown');
 	};
 
 	app.stopwatch = function(){
-		start();
 		timer.stopwatch();
 		setMode('stopwatch');
 	};
